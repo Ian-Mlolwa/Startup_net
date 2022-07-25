@@ -20,12 +20,8 @@
         $sql = "INSERT INTO Registered_Users Values ('$name','$email','$address','$phone_number','$join_as','$comment')";
         if($con -> query($sql) == TRUE); {
             echo '<div class="alert alert-primary" role="alert">
-              This is a primary alert—check it out!
-            </div>';
-
-            header ('location:index.php?Success=<div class="alert alert-primary" role="alert">
-            This is a primary alert—check it out!
-          </div>');
+                    Your Info Is Submitted Succesfully!
+                  </div>';
         }
     }    
 
@@ -99,7 +95,7 @@ https://templatemo.com/tm-569-edu-meeting
                       <!-- ***** Logo End ***** -->
                       <!-- ***** Menu Start ***** -->
                       <ul class="nav">
-                          <li class="scroll-to-section"><a onclick="history.back()">Back</a></li>
+                          <li class="scroll-to-section"><a href="index.php">Back</a></li>
                           
                           <!--
                           <li class="has-sub">
