@@ -8,6 +8,7 @@
     <meta name="description" content="">
     <meta name="author" content="Rems School">
     <link href="https://fonts.googleapis.com/css?family=Poppins:100,200,300,400,500,600,700,800,900" rel="stylesheet">
+    <link rel="shortcut icon" type="image/x-icon" href="favicon.png">
 
     <title>Huru Startup Network</title>
 
@@ -27,6 +28,15 @@ TemplateMo 569 Edu Meeting
 https://templatemo.com/tm-569-edu-meeting
 
 -->
+    <style>
+      img {
+          border-radius: 4px;
+          height: 100px;
+          width: 100px;
+          margin-right:-20px;
+          margin-left: -100px;
+        }
+    </style>
   </head>
 
 <body>
@@ -43,9 +53,9 @@ https://templatemo.com/tm-569-edu-meeting
         <div class="col-lg-4 col-sm-4">
           <div class="right-icons">
             <ul>
-              <li><a href="#"><i class="fa fa-facebook"></i></a></li>
-              <li><a href="#"><i class="fa fa-twitter"></i></a></li>
-              <li><a href="#"><i class="fa fa-linkedin"></i></a></li>
+              <li><a href="https://web.facebook.com/hurunetwork"><i class="fa fa-facebook"></i></a></li>
+              <li><a href="https://twitter.com/HuruNetwork"><i class="fa fa-twitter"></i></a></li>
+              <li><a href="https://www.linkedin.com/company/huru-startup-network/about/?viewAsMember=true"><i class="fa fa-linkedin"></i></a></li>
             </ul>
           </div>
         </div>
@@ -60,8 +70,9 @@ https://templatemo.com/tm-569-edu-meeting
               <div class="col-12">
                   <nav class="main-nav">
                       <!-- ***** Logo Start ***** -->
-                      <a href="index.php" class="logo">
-                          HURU STARTUP NETWORK
+                      
+                      <a href="index.php" class="logo" >
+                      <img src="logo.png" height="50px" width="5px">HURU STARTUP NETWORK
                       </a>
                       <!-- ***** Logo End ***** -->
                       <!-- ***** Menu Start ***** -->
