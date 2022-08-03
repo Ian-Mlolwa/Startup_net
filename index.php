@@ -53,9 +53,9 @@ https://templatemo.com/tm-569-edu-meeting
         <div class="col-lg-4 col-sm-4">
           <div class="right-icons">
             <ul>
-              <li><a href="https://web.facebook.com/hurunetwork"><i class="fa fa-facebook"></i></a></li>
-              <li><a href="https://twitter.com/HuruNetwork"><i class="fa fa-twitter"></i></a></li>
-              <li><a href="https://www.linkedin.com/company/huru-startup-network/about/?viewAsMember=true"><i class="fa fa-linkedin"></i></a></li>
+              <li><a href="https://web.facebook.com/hurunetwork" target="blank"><i class="fa fa-facebook"></i></a></li>
+              <li><a href="https://twitter.com/HuruNetwork" target="blank"><i class="fa fa-twitter"></i></a></li>
+              <li><a href="https://www.linkedin.com/company/huru-startup-network/about/?viewAsMember=true" target="blank"><i class="fa fa-linkedin"></i></a></li>
             </ul>
           </div>
         </div>
@@ -377,7 +377,7 @@ https://templatemo.com/tm-569-edu-meeting
               <li>
                 <h6>Phone Number</h6>
                 <span>+254797067476</span>
-                <span>+254708555749</span>
+                <span>+254798701787</span>
               </li>
               
               <!--<li>

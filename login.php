@@ -1,12 +1,46 @@
 <?php
 session_start();
 
-    include("function.php");
-    include("connection.php");
+  include("connection.php");
+  include("function.php");
 
-    $user_data = check_login($con);
+  if($_SERVER['REQUEST_METHOD'] == "POST")
+  {
+      //something was posted
+      $username = $_POST['username'];
+      $password = $_POST['password'];
+      $password = md5($password);
 
-    if($_SERVER)
+      if(!empty($username) && !empty($password) && !is_numeric($username))
+      {
+
+          //read from database
+          $query = "SELECT * FROM admin WHERE username = '$username' limit 1";
+          $result = mysqli_query($con, $query);
+
+          if($result)
+          {
+              if($result && mysqli_num_rows($result) > 0)
+              {
+                  
+                  $user_data = mysqli_fetch_assoc($result);
+
+                  if($user_data['password'] === $password)
+                  {
+                      $_SESSION['id'] = $user_data['id'];
+                      header("Location: admin.php");
+                      die;        
+                  }
+              }
+          }
+
+          header("location:login.php?Invalid= Incorrect Username or Password");
+      }
+       else
+      {
+          header("location:login.php?Empty=Can't be NULL!");
+      }
+  }
 ?>
 
 <!DOCTYPE html>
@@ -49,26 +83,6 @@ https://templatemo.com/tm-569-edu-meeting
           margin-right:-20px;
           margin-left: -100px;
         }
-    
-      table {
-        font-family: Arial, Helvetica, sans-serif;
-        border-collapse: collapse;
-        width: 100%;
-      }
-
-      td, th {
-        border: 1px solid #ddd;
-        padding: 8px;
-      }
-
-      tr{background-color: #f2f2f2;}
-
-      th {
-        padding-top: 12px;
-        padding-bottom: 12px;
-        text-align: left;
-        background-color: #04AA6D;
-      }
     </style>
   </head>
 
@@ -108,8 +122,9 @@ https://templatemo.com/tm-569-edu-meeting
                       <!-- ***** Logo End ***** -->
                       <!-- ***** Menu Start ***** -->
                       <ul class="nav">
-                          <li><a><?php echo " " .$user_data ['username'] ; ?></i></a></li>
-                          <li><a id="link" href="logout.php?logout">Logout</a></li>
+                          <li class="scroll-to-section"><a href="index.php">LOGIN</a></li>
+                          
+         
                       </ul>        
                       <a class='menu-trigger'>
                           <span>Menu</span>
@@ -133,45 +148,56 @@ https://templatemo.com/tm-569-edu-meeting
         <div class="row">
           <div class="col-lg-12">
             <div class="caption">
-            <h2>Registered Users</h2>
-              <select name="join_as" id="join_as">
-                <option value="all"selected disabled>Filter</option>
-                <option value="software-engineer/developer">Software engineer/Developer</option>
-                <option value="technical co-founder">Technical Co-founder</option>
-                <option value="angel-investor">Angel Invester</option>
-                <option value="vc-firm">Vc firm</option>
-                <option value="donor/philanthropist">Donor/Philanthropist</option>
-                <option value="mentor">Mentor</option>
-                <option value="entusiast">Enthusiast</option>
-              </select>
-              <div class="container2">
-                <table>
-                  <tr>
-                    <th>Join_As</th>
-                    <th>Name</th>
-                    <th>Email</th>
-                    <th>Phone_Number</th>
-                    <th>Address</th>
-                  </tr>
 
-                  <?php
-                  
-                  $query = "SELECT * FROM Registered_Users";
-                  $r= mysqli_query($con, $query);
-                  while($row = mysqli_fetch_assoc($r)){
-                    ?>
-                    <tr>
-                      <td><?php echo $row['Join_As'];?></td>
-                      <td><?php echo $row['Name'];?></td>
-                      <td><?php echo $row['Email'];?></td>                          
-                      <td><?php echo $row['Phone_Number'];?></td>
-                      <td><?php echo $row['Address'];?></td>                          
-                    </tr>
+           
+  <section class="contact-us" id="contact">
+    <div class="container">
+
+
+      <div class="col-lg-12">
+        <div class="section-heading">
+          <h2>LogIn</h2>
+        </div>
+      </div>
+
+
+      <div class="row">
+        <div class="col-lg-9 align-self-center">
+          <div class="row">
+            <div class="col-lg-12">
+
+            <form id="contact" method="post">
+            <div>
                     <?php
-                  }
+                        if(@$_GET['Empty']==true)
+                        {
                     ?>
-                </table>
-              </div>
+                    <?php echo "<p style='color:red;'>" .$_GET['Empty'] ?>
+                    <?php
+                        }
+                    ?>
+
+                    <?php
+                        if(@$_GET['Invalid']==true)
+                        {
+                    ?>
+                    <?php echo "<p style='color:red;'>" .$_GET['Invalid'] ?>
+                    <?php
+                        }
+                    ?> <br>
+                </div>
+                <div class="row">
+                <label for="username">Admin Name</label>
+                  <input type="text" placeholder="username" name="username">
+                <label for="password">Password</label>
+                  <input type="password" placeholder="password" name="password">
+                <div class="col-lg-4">
+                  <button type="submit" class="submit" name="login">Submit</button>
+                </div>
+
+                </div>
+              </form>
+              
             </div>
           </div>   
         </div>
@@ -180,25 +206,6 @@ https://templatemo.com/tm-569-edu-meeting
   </section>
                   
 
-  <script type="text/javascript">
-    $(document).ready(function(){
-      $("#join_as").on('change',function(){
-        var value = $(this).val();
-        //alert(value);
-        
-        $.ajax({
-          url:"fetch.php",
-          type:"POST",
-          data:'request=' + value,
-          beforeSend:function(){
-            $(".container2").html("<h2>Working...</h2>");
-          },
-          success:function(data){
-            $(".container2").html(data);
-          }
-        });
-      });
-    });
-  </script>
+
   <!-- ***** Main Banner Area End ***** -->
   </html>

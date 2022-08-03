@@ -34,7 +34,7 @@
     
     <?php
     } else {
-        echo "Sorry! no record found";
+        echo "<p style='color:red;'>Sorry! no record found</p>";
     }
     ?>
     <?php
