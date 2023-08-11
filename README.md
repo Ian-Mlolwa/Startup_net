@@ -1,2 +1,4 @@
 # Startup_net Website created by using bootstrap, javascript, html and some php(backend)
-![Start upnet](https://github.com/Ian-Mlolwa/Ian-Mlolwa/assets/75843266/08641318-7918-4fa1-821b-9e2a566932aa)
+
+![statup](https://github.com/Ian-Mlolwa/Startup_net/assets/75843266/4b05efaa-2276-450d-ae0a-aabfc82f7d6e)
+
